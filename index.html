@@ -15,111 +15,100 @@
 
     <style>
       body {
-        font-family: 'Orbitron', sans-serif;
-        background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-        color: #eee;
+        font-family: 'Inter', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        margin: 0;
       }
 
       .navbar {
-        background-color: #121212;
+        background-color: #ffffff;
+        border-bottom: 1px solid #ddd;
       }
 
-      .navbar-brand, .nav-link {
-        color: #b36bff !important;
+      .navbar-brand {
+        font-weight: 600;
+        color: #111;
       }
 
-      .main-box {
-        background-color: #2a2a2a;
-        border-radius: 20px;
-        padding: 40px;
-        box-shadow: 0 0 20px rgba(128, 0, 128, 0.6);
-        max-width: 600px;
-        text-align: center;
-        margin: 40px auto;
+      .nav-link {
+        color: #555 !important;
+        transition: color 0.2s;
       }
 
-      .main-box h1 {
-        color: #b36bff;
+      .nav-link:hover {
+        color: #000 !important;
       }
 
-      .main-box p {
+      #about-section {
+        display: none;
+        padding: 40px 20px;
+        background-color: #ffffff;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+      }
+
+      #about-section .content {
+        max-width: 900px;
+        margin: auto;
+        text-align: left;
         font-size: 1.1rem;
-        color: #d0ffd0;
-      }
-
-      .btn-custom {
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 10px;
-        transition: 0.3s;
-      }
-
-      .btn-custom:hover {
-        background-color: #45a049;
-      }
-
-      .section {
-        padding: 60px 20px;
-      }
-
-      .section h2 {
-        color: #b36bff;
-        margin-bottom: 20px;
+        color: #444;
       }
 
       .footer {
-        background-color: #121212;
+        background-color: #eeeeee;
         text-align: center;
         padding: 20px;
         color: #888;
         font-size: 0.9rem;
       }
+
+      .email-link {
+        color: #007b5e;
+        font-weight: 500;
+      }
     </style>
   </head>
-  <body>
+   <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#">Tiziano</a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">Chi sono</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="toggleAbout()">Chi sono</a></li>
           <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- Home -->
-    <div class="main-box" id="home">
-      <h1>Benvenuto nel mio sito!</h1>
-      <p>Mi chiamo Tiziano e questo è il mio spazio personale sul web. Qui troverai le mie passioni, progetti e contatti.</p>
-      <a href="#about" class="btn btn-custom">Scopri di più</a>
-    </div>
-
-    <!-- Chi sono -->
-    <section id="about" class="section text-center">
-      <div class="container">
-        <h2>Chi sono</h2>
-        <p>Sono un giovane appassionato di tecnologia, design e sviluppo web. Amo imparare nuove competenze e mettermi alla prova con progetti sempre più ambiziosi.</p>
+    <!-- Sezione Chi sono a tendina -->
+    <section id="about-section">
+      <div class="content">
+        <p>
+          Sono un giovane appassionato di tecnologia, design e sviluppo web. Amo imparare nuove competenze e mettermi alla prova con progetti sempre più ambiziosi.
+        </p>
       </div>
     </section>
 
     <!-- Contatti -->
-    <section id="contatti" class="section text-center bg-dark">
-      <div class="container">
-        <h2>Contattami</h2>
-        <p>Puoi scrivermi a: <a href="mailto:tiziano@example.com" class="text-success">tiziano@example.com</a></p>
-      </div>
+    <section id="contatti" class="text-center py-5">
+      <h2 class="mb-3" style="color:#333;">Contattami</h2>
+      <p>Puoi scrivermi a: <a class="email-link" href="mailto:tiziano@example.com">tiziano@example.com</a></p>
     </section>
 
     <!-- Footer -->
     <div class="footer">
       © 2025 Tiziano - Tutti i diritti riservati
     </div>
-    <!-- Optional JavaScript; choose one of the two! -->
+
+    <script>
+      function toggleAbout() {
+        const section = document.getElementById("about-section");
+        section.style.display = section.style.display === "none" ? "block" : "none";
+      }
+    </script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
