@@ -21,3 +21,7 @@ function toggleMobileMenu() {
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+// Scroll to top
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
