@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "temperatura_tuschi": "Calcolo della differenza di temperatura",
       "tiro-dadi_tuschi":"Lancio di n dadi con calcolo di media",
       "voto-ristorante_tuschi":"Gestione delle recensioni di ristoranti",
+        "strike&ball_tuschi":"Algoritmo per gioco strike&ball (indovina la combinazione)",
       // Aggiungi qui le descrizioni per ogni esercizio
     };
 
