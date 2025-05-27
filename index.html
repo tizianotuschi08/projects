@@ -20,9 +20,9 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a onclick="openModal('aboutModal')">Chi sono</a></li>
-        <li><a href="#diario">Diario</a></li>
+        <li><a href="diario.html">Diario</a></li>
         <li><a onclick="openModal('contactModal')">Contatti</a></li>
-<li><a href="#lavori">Lavori</a></li>
+<li><a href="lavori.html">Lavori</a></li>
       </ul>
     </nav>
         <!-- Icona hamburger per dispositivi mobili -->
@@ -51,49 +51,7 @@
     </div>
   </section>
 
-  <!-- Diario -->
-  <section id="diario" class="diary-section">
-    <div class="book">
-      <div class="page" id="page1">
-        <h2>Pagina 1</h2>
-        <p>Oggi ho iniziato a lavorare sul mio sito personale. È emozionante creare qualcosa da zero!</p>
-      </div>
-      <div class="page" id="page2">
-        <h2>Pagina 2</h2>
-        <p>Ho imparato a usare HTML e CSS per creare layout semplici ma eleganti. Mi piace molto lo stile minimalista.</p>
-      </div>
-      <div class="page" id="page3">
-        <h2>Pagina 3</h2>
-        <p>Ho aggiunto la funzionalità di diario a pagine sfogliabili. Ora posso raccontare la mia storia con stile.</p>
-      </div>
-    </div>
-    <div class="navigation">
-      <button id="prevBtn">←</button>
-      <button id="nextBtn">→</button>
-    </div>
-  </section>
   
-  <!-- Lavori -->
-<section id="lavori" class="diary-section">
-  <h2>I miei esercizi in C++</h2>
-  <p>Qui puoi scaricare i miei esercizi sviluppati in C++ direttamente dalla mia repository GitHub.</p>
-  <div style="overflow-x:auto;">
-    <table style="width:100%; border-collapse: collapse; margin-top: 2rem;">
-      <thead>
-        <tr style="background-color: var(--color-primary); color: white;">
-          <th style="padding: 0.75rem; text-align: center;">Nome Cartella</th>
-          <th style="padding: 0.75rem; text-align: center;">Descrizione</th>
-          <th style="padding: 0.75rem; text-align: center;">Download</th>
-        </tr>
-      </thead>
-      <tbody id="lavori-table-body">
-        <!-- Le righe verranno inserite qui dallo script -->
-      </tbody>
-    </table>
-  </div>
-</section>
-
-
   <!-- Modal Chi sono -->
   <div id="aboutModal" class="modal">
     <div class="modal-content">
@@ -114,55 +72,6 @@
     </div>
   </div>
 
-  <!-- Script -->
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const tableBody = document.querySelector("#lavori-table-body");
-
-    const descrizioni = {
-      "Progetto1": "Esercizi base",
-      "asta_tuschi": "Simulazione di un'asta",
-      "calciatori_tuschi": "Gestione di una squadra di calciatori",
-      "collatz_tuschi": "Algoritmo per la legge di collatz",
-      "matrice-quadrata_tuschi": "Calcoli con una matrice quadratica",
-      "mcm-mcd_tuschi": "Calcolo MCM e MCD di due numeri",
-      "numeri-belga_tuschi": "Algoritmo per il calcolo di numeri belga",
-      "numeri-univoci_tuschi":"Ricerca di numeri ripetuti in una matrice",
-      "numeri-vampiro_tuschi":"Algoritmo per calcoli di numeri vampiro",
-      "stadio_tuschi":"Gestione dei biglietti di uno stadio",
-      "temperatura_tuschi": "Calcolo della differenza di temperatura",
-      "tiro-dadi_tuschi":"Lancio di n dadi con calcolo di media",
-      "voto-ristorante_tuschi":"Gestione delle recensioni di ristoranti",
-      // Aggiungi qui le descrizioni per ogni esercizio
-    };
-
-    fetch("https://api.github.com/repos/tizianotuschi08/projects/contents")
-      .then(response => response.json())
-      .then(data => {
-        data.forEach(item => {
-          if (item.type === "dir") {
-            const nome = item.name;
-            const descrizione = descrizioni[nome] || "Descrizione non disponibile";
-            const downloadLink = `https://github.com/tizianotuschi08/projects/tree/main/${nome}`;
-
-            const row = document.createElement("tr");
-            row.innerHTML = `
-              <td style="padding: 0.75rem; text-align: center;">${nome}</td>
-              <td style="padding: 0.75rem; text-align: center;">${descrizione}</td>
-              <td style="padding: 0.75rem; text-align: center;">
-                <a href="${downloadLink}" target="_blank">Vai alla cartella</a>
-              </td>
-            `;
-            tableBody.appendChild(row);
-          }
-        });
-      })
-      .catch(error => {
-        console.error("Errore nel caricamento della repository GitHub:", error);
-      });
-  });
-  
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
