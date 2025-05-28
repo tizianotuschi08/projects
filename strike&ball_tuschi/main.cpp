@@ -75,7 +75,7 @@ int main() {
             }
         }
 
-        // Controllo se tutto è corretto
+        // Controllo se tutto Ã¨ corretto
         uguali = true;
         for (int i = 0; i < dim; i++) {
             if (numero_inserito[i] != numero_segreto[i]) {
@@ -86,6 +86,6 @@ int main() {
 
     } while (!uguali);
 
-    cout << endl << endl << "Complimenti! Hai indovinato il numero segreto con " << endl << tentativi << " tentativi!3";
+    cout << endl << endl << "Complimenti! Hai indovinato il numero segreto con " << endl << tentativi << " tentativi!";
     return 0;
 }
