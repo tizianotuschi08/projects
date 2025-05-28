@@ -41,26 +41,29 @@
   </header>
 
   <!-- Diario -->
-  <section id="diario" class="diary-section">
-    <div class="book">
-      <div class="page" id="page1">
-        <h2>Pagina 1</h2>
-        <p>Oggi ho iniziato a lavorare sul mio sito personale. È emozionante creare qualcosa da zero!</p>
-      </div>
-      <div class="page" id="page2">
-        <h2>Pagina 2</h2>
-        <p>Ho imparato a usare HTML e CSS per creare layout semplici ma eleganti. Mi piace molto lo stile minimalista.</p>
-      </div>
-      <div class="page" id="page3">
-        <h2>Pagina 3</h2>
-        <p>Ho aggiunto la funzionalità di diario a pagine sfogliabili. Ora posso raccontare la mia storia con stile.</p>
-      </div>
+<section id="diario" class="diary-section">
+  <div class="book">
+    <div class="page" id="page1">
+      <h2>Pagina 1</h2>
+      <p>Oggi ho iniziato a lavorare sul mio sito personale. È emozionante creare qualcosa da zero!</p>
     </div>
-    <div class="navigation">
-      <button id="prevBtn">←</button>
-      <button id="nextBtn">→</button>
+    <div class="page" id="page2">
+      <h2>Pagina 2</h2>
+      <p>Ho imparato a usare HTML e CSS per creare layout semplici ma eleganti. Mi piace molto lo stile minimalista.</p>
     </div>
-  </section>
+    <div class="page" id="page3">
+      <h2>Pagina 3</h2>
+      <p>Ho aggiunto la funzionalità di diario a pagine sfogliabili. Ora posso raccontare la mia storia con stile.</p>
+    </div>
+  </div>
+
+  <!-- Navigazione -->
+  <div class="navigation">
+    <button id="prevBtn">←</button>
+    <div class="dots" id="pageDots"></div>
+    <button id="nextBtn">→</button>
+  </div>
+</section>
   
   <!-- Modal Chi sono -->
   <div id="aboutModal" class="modal">
