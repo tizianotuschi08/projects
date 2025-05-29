@@ -82,7 +82,7 @@ int main() {
 
     for (int i = 0; i < numero_squadre; i++) {
         cout << "\nInserisci il nome della squadra " << i + 1 << ": ";
-        cin.ignore();
+        if(i==0)cin.ignore();
         getline(cin, squadre[i].nome);
 
         squadre[i].numero_giocatori = rand() % 6 + 11;
