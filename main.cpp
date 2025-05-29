@@ -44,37 +44,19 @@ struct risultati {
 };
 
 void calcolaQuote(partita& p, const squadra& s1, const squadra& s2) {
-    int overall1 = s1.overall;
-    int overall2 = s2.overall;
+    float overall1 = s1.overall;
+    float overall2 = s2.overall;
 
-    int diff = abs(overall1 - overall2);
-    float strength1 = overall1 / float(overall1 + overall2);
-    float strength2 = overall2 / float(overall1 + overall2);
+    float total = overall1 + overall2;
 
-    // Quote base: più è forte la squadra, più bassa la sua quota
-    float base1 = 1.5f - (strength1 * 0.9f);  // tra ~1.05 e 1.5
-    float base2 = 1.5f - (strength2 * 0.9f);  // tra ~1.05 e 1.5
+    // Usa potenza per esaltare le differenze
+    float prob1 = pow(overall1 / total, 1.35f);
+    float prob2 = pow(overall2 / total, 1.35f);
 
-    // Aggiustamento per non avere quote troppo simili
-    if (diff <= 5) {
-        base1 += 0.3f;
-        base2 += 0.3f;
-    } else if (diff >= 20) {
-        base1 -= 0.2f;
-        base2 += 0.3f;
-    }
-
-    // Imposta chi è chi
-    if (overall1 > overall2) {
-        p.quota1 = max(1.05f, base1);
-        p.quota2 = max(1.1f, base2);
-    } else {
-        p.quota1 = max(1.1f, base1);
-        p.quota2 = max(1.05f, base2);
-    }
-
-    // Calcolo quota pareggio (più alta)
-    p.quotaX = ((p.quota1 + p.quota2) / 2.0f) + 0.4f;
+    // Quote inverse delle probabilità
+    p.quota1 = min(10.0f, max(1.05f, 1.0f / prob1));
+    p.quota2 = min(10.0f, max(1.05f, 1.0f / prob2));
+    p.quotaX = min(10.0f, ((p.quota1 + p.quota2) / 2.0f) * 1.05f); // pareggio leggermente meno probabile
 }
 
 void simulaPartita(partita& p) {
