@@ -44,22 +44,37 @@ struct risultati {
 };
 
 void calcolaQuote(partita& p, const squadra& s1, const squadra& s2) {
-    int diff = abs(s1.overall - s2.overall);
-    float addendo_quota = max(s1.overall, s2.overall) / 100.0f;
-    float base_quota = diff / 10.0f;
+    int overall1 = s1.overall;
+    int overall2 = s2.overall;
 
-    if (s1.overall > s2.overall) {
-        p.quota1 = base_quota - addendo_quota * base_quota;
-        p.quota2 = base_quota + (addendo_quota * 2);
-    } else {
-        p.quota2 = base_quota - addendo_quota * base_quota;
-        p.quota1 = base_quota + (addendo_quota * 2);
+    int diff = abs(overall1 - overall2);
+    float strength1 = overall1 / float(overall1 + overall2);
+    float strength2 = overall2 / float(overall1 + overall2);
+
+    // Quote base: più è forte la squadra, più bassa la sua quota
+    float base1 = 1.5f - (strength1 * 0.9f);  // tra ~1.05 e 1.5
+    float base2 = 1.5f - (strength2 * 0.9f);  // tra ~1.05 e 1.5
+
+    // Aggiustamento per non avere quote troppo simili
+    if (diff <= 5) {
+        base1 += 0.3f;
+        base2 += 0.3f;
+    } else if (diff >= 20) {
+        base1 -= 0.2f;
+        base2 += 0.3f;
     }
 
-    if (p.quota1 < 1.05f) p.quota1 = 1.05f;
-    if (p.quota2 < 1.05f) p.quota2 = 1.05f;
+    // Imposta chi è chi
+    if (overall1 > overall2) {
+        p.quota1 = max(1.05f, base1);
+        p.quota2 = max(1.1f, base2);
+    } else {
+        p.quota1 = max(1.1f, base1);
+        p.quota2 = max(1.05f, base2);
+    }
 
-    p.quotaX = (p.quota1 + p.quota2) / 2.0f;
+    // Calcolo quota pareggio (più alta)
+    p.quotaX = ((p.quota1 + p.quota2) / 2.0f) + 0.4f;
 }
 
 void simulaPartita(partita& p) {
