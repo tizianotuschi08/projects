@@ -1,0 +1,2 @@
+Ciao, mondo!
+Scrivo su un file di testo.

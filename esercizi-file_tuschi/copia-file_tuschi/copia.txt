@@ -1,0 +1,5 @@
+Ciao a tutti questa e una prova per copiare un file di testo
+all'interno di un altro file di testo.
+Sono esercizi per imparare a manipolare file con il c++.
+Carichero questo esercizio e i prossimi sul mio sito web.
+
