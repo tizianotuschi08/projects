@@ -45,32 +45,5 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-/* ✅ Responsive per dispositivi mobili */
-@media (max-width: 600px) {
-  .book {
-    padding: 1rem;
-    margin: 1rem auto;
-    max-width: 100%;
-  }
-
-  .page h2 {
-    font-size: 1.3rem;
-  }
-
-  .page p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .navigation button {
-    font-size: 1.2rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-  }
-}
 // Inizializza alla prima pagina
 showPage(currentPage);
