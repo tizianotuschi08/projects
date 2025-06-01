@@ -93,7 +93,7 @@ int main()
 
     // Stampa le parole uniche, una per riga
     cout << "Le parole uniche sono: ";
-    for (string p : parole_uniche){
+    for (const string& p : parole_uniche){ // Utilizzando const evitiamo di poter modificare le stringhe, utilizzando & prendiamo le parole per riferimento senza copiarne il contenuto
         cout << p << endl;
     }
 
