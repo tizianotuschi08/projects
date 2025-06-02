@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "voto-ristorante_tuschi":"Gestione delle recensioni di ristoranti",
         "strike&ball_tuschi":"Algoritmo per gioco strike&ball (indovina la combinazione)",
         "calcolo-stagioni_tuschi":"Algoritmo per sapere la stagione corrispondente al mese",
+        "esercizi-file_tuschi":"Parecchi esercizi sulla gestione di file",
+        "esercizi-testo_tuschi":"Parecchi esercizi sulla manipolazione di testo",
         "gestione-libreria_tuschi":"Codice per la gestione di una libreria (manipolazione file)",
       // Aggiungi qui le descrizioni per ogni esercizio
     };
