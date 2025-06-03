@@ -20,6 +20,7 @@ Cerca studente e modifica voti
 
 Esci*/
 bool salva = true;
+bool carica = true;
 
 struct studente {
 	string NOME;
@@ -118,7 +119,7 @@ void caricaDaFile(vector<studente>& elenco) {
 		}
 
 		studente st;
-		st.NOME = riga.substr(0, sep);  // Parte del nome
+		st.NOME = riga.substr(0, sep);
 
 		istringstream ss(riga.substr(sep + 1));
 		for (int i = 0; i < 5; ++i) {
@@ -147,6 +148,7 @@ void caricaDaFile(vector<studente>& elenco) {
 int main() {
 	int scelta = -1;
 	vector<studente> registro;
+	vector<studente> salvataggio;
 
 	while (scelta != 0) {
 		cout << "\n--- Registro Elettronico ---" << endl;
@@ -209,6 +211,7 @@ int main() {
 			}
 			alunno.MEDIA = media / 5;
 			aggiungiStudente(alunno, registro);
+			aggiungiStudente(alunno, salvataggio);
 			
 			salva = false;
 			break;
@@ -248,16 +251,22 @@ int main() {
 			break;
 		}
 		case 4:
-			salvaSuFile(registro);
+			salvaSuFile(salvataggio);
 			salva = true;
 			break;
 		case 5:
-			caricaDaFile(registro);
+			if(carica){
+				caricaDaFile(registro);
+				carica = false;
+			}
+			else{
+				cout<<"Hai gia caricato i file!"<<endl;
+			}
 			break;
 		case 0: {
 			if(!salva) {
 				char scelta;
-				cout<<"Vuoi salvare? ";
+				cout<<"Vuoi salvare? (s/n)";
 				cin >> scelta;
 
 				// Protezione contro input non numerici
@@ -271,7 +280,7 @@ int main() {
 				cin.ignore(); // rimuove il carattere '\n' rimasto dopo il numero
 
 				if (scelta == 's' || scelta == 'S') {
-					salvaSuFile(registro);
+					salvaSuFile(salvataggio);
 				}
 			}
 			cout << "\nArrivederci..." << endl;
